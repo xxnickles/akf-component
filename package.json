@@ -1,0 +1,22 @@
+{
+  "name": "component-test",
+  "version": "1.0.0",
+  "description": "test-component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "webpack",
+    "pack-comp": "webpack --config webpack.component.config.js",
+    "start": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "lite-server": "^2.3.0",
+    "style-loader": "^0.19.0",
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.3",
+    "webpack": "^3.6.0"
+  }
+}
