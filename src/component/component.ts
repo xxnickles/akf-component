@@ -1,4 +1,4 @@
-import { message } from "./message";
+import { IMessage } from "./message";
 import { Templates } from "./templates";
 
 // for webpack to import the styles in the bundling pipeline
@@ -14,7 +14,7 @@ export class TestComponent {
     private label: HTMLParagraphElement;
 
     // internal defaults
-    private defaultMessage: message;
+    private defaultMessage: IMessage;
     private defaultInput = "strange";
 
     constructor(private targetContainerId: string) {
@@ -25,9 +25,10 @@ export class TestComponent {
         this.defaultMessage = this.buildMessage(this.defaultInput);
         this.targetContainer = document.getElementById(this.targetContainerId);
         this.targetContainer.innerHTML = Templates.GetTemplate();
-        this.label = document.getElementById("display-message") as HTMLParagraphElement;
-        this.textBox = document.getElementById("user-input") as HTMLInputElement;
+        this.label = document.querySelector(`div#${this.targetContainerId} p#display-message`) as HTMLParagraphElement;
+        this.textBox = document.querySelector(`div#${this.targetContainerId} input#user-input`) as HTMLInputElement;
         this.addListeners();
+        this.renderMessage(this.defaultMessage);
     }
 
     public addListeners() {
@@ -38,15 +39,15 @@ export class TestComponent {
         });
     }
 
-    public renderMessage(theMessage: message) {
+    public renderMessage(theMessage: IMessage) {
         this.label.innerText = this.sayHello(theMessage);
     }
 
-    public sayHello(theMessage: message) {
-        return `hello <b>${theMessage.name}!!!</b> today is ${theMessage.date}`;
+    public sayHello(theMessage: IMessage) {
+        return `hello ${theMessage.name}!!! today is ${theMessage.date}`;
     }
 
-    public buildMessage(name: string): message {
+    public buildMessage(name: string): IMessage {
         return {
             date: Date(),
             name,

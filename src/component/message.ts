@@ -1,4 +1,4 @@
-export interface message {
-    name: string
-    date: string
+export interface IMessage {
+    name: string;
+    date: string;
 }

@@ -1,6 +1,9 @@
 const path = require("path")
 module.exports = {
-  entry: './src/component/index.ts',
+  entry: {
+    myComponent:'./src/component/index.ts',
+    myInstanceableComponent: './src/component/component.ts'
+  },
   module: {
     rules: [{
       test: /\.tsx?$/,
@@ -17,10 +20,10 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
   output: {
-    filename: 'component.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'window',
-    library: 'myLib',
+    library: '[name]',
     umdNamedDefine: true
   }
 };

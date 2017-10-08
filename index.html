@@ -13,9 +13,11 @@
     <div id="test-compt"></div>
     <div id="test-2-compt"></div>
     <!-- <script src="./dist/app.js"></script> -->
-    <script src="./dist/component.js"></script>
+    <script src="./dist/myComponent.js"></script>
+    <script src="./dist/myInstanceableComponent.js"></script>
     <script>
-        myLib.component('test-2-compt').initialize()
+        myComponent.component('test-compt').initialize()
+        new myInstanceableComponent.TestComponent('test-2-compt').initialize()
     </script>  
 </body>
 
