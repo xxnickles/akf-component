@@ -1,3 +1,3 @@
-import {testComponent} from './component/component'
+import {TestComponent} from "./component/component";
 
-new testComponent('test-compt').initialize()
+new TestComponent("test-compt").initialize();
